@@ -1,0 +1,27 @@
+[
+  {
+    "value": "001",
+    "label": "One",
+    "description": "The first project"
+  },
+  {
+    "value": "002",
+    "label": "Two",
+    "description": "The second project"
+  },
+  {
+    "value": "003",
+    "label": "XYZ",
+    "description": "Project X Y Z"
+  },
+  {
+    "value": "004",
+    "label": "ABC",
+    "description": "Project A B C"
+  },
+  {
+    "value": "005",
+    "label": "Testing",
+    "description": "Test Project"
+  }
+]
