@@ -11,7 +11,10 @@ const InspectionPoint8 = props => {
     const handleSwitch = (val) => {
         setInspectionResult(val);
         props.inspection.inspectionPoints[7] = val;
-    }
+        if (val) {
+            props.nextScreen();
+        }
+    };
 
     return (
         <EditInspectionPage label={title}>

@@ -18,6 +18,7 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 20,
+        fontFamily: 'open-sans-bold',
         fontWeight: 'bold',
         color: Colors.light,
         marginBottom: 40

@@ -2,14 +2,24 @@ import React, { useState } from 'react';
 import InspectionsListScreen from './screens/InspectionsListScreen';
 import EditInspectionScreen from './screens/EditInspectionScreen';
 import { Header } from 'react-native-elements'
+import { AppLoading } from 'expo';
 
 import {View, StyleSheet, Text, TouchableWithoutFeedback, Keyboard} from "react-native";
 import COLORS from './constants/colors';
 import INSPECTIONS from "./assets/Inspections";
 import CustomInput from "./components/CustomInput";
+import * as Font from 'expo-font';
+
+const fetchFonts = () => {
+    Font.loadAsync({
+        'open-sans': require('./assets/fonts/OpenSans-Regular.ttf'),
+        'open-sans-bold': require('./assets/fonts/OpenSans-Bold.ttf')
+    });
+};
 
 export default function App() {
 
+    const [dataLoaded, setDataLoaded] = useState(false);
     const [inspections, setInspections] = useState(INSPECTIONS);
     const [filter, setFilter] = useState('');
     const [mode, setMode] = useState('LIST');  // mode=LIST/EDIT
@@ -19,9 +29,16 @@ export default function App() {
         setFilter(enteredText);
     };
     const homeHandler = () => {
-        console.log('GO HOME!');
         setMode('HOME');
     };
+
+    if (!dataLoaded) {
+        return <AppLoading
+            startAsync={fetchFonts}
+            onFinish={() => setDataLoaded(true)}
+            onError={() => console.log(err)}
+        />;
+    }
 
     let content = {};
     let search;

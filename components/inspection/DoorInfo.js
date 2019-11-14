@@ -37,41 +37,36 @@ const DoorInfo = props => {
         <EditInspectionPage label="Door Information" style={styles.screen}>
             <CustomInput
                 label = "ID"
-                style={styles.item}
-                onChangeText = {idHandler}
-                value = {doorId}
-                placeholder="ID..."
-                placeholderTextColor='#FFF'/>
+                onChangeText={idHandler}
+                value={doorId}
+                placeholder="Enter ID (TBD - scan this)..."
+            />
             <CustomInput
                 label = "Alternate ID"
-                style={styles.item}
-                onChangeText = {alternateIdHandler}
-                value = {doorAlternateId}
+                onChangeText={alternateIdHandler}
+                value={doorAlternateId}
                 placeholder="Alternate ID..."
-                placeholderTextColor='#FFF'/>
+            />
             <CustomInput
                 label = "Floor"
-                style={styles.item}
-                onChangeText = {floorHandler}
-                value = {floor}
+                onChangeText={floorHandler}
+                value={floor}
                 placeholder="Floor..."
-                placeholderTextColor='#FFF'/>
+            />
             <CustomInput
                 label = "Manufacturer"
-                style={styles.item}
-                onChangeText = {manufacturerHandler}
-                value = {manufacturer}
+                onChangeText={manufacturerHandler}
+                value={manufacturer}
                 placeholder="Manufacturer..."
-                placeholderTextColor='#FFF'/>
+            />
             <CustomInput
                 label = "Number of Leafs"
                 keyboardType = "number-pad"
-                style={styles.item}
                 onChangeText = {numLeafsHandler}
                 value = {numLeafs}
                 placeholder="Number of Leafs..."
-                placeholderTextColor='#FFF'/>
-            <Text style={styles.item}>Pictures: front, back, location on print (TBD)</Text>
+            />
+            <Text style={styles.tmpItem}>TODO:  Pictures: front, back, location on print (TBD)</Text>
         </EditInspectionPage>
     );
 };
@@ -80,8 +75,8 @@ const styles = StyleSheet.create({
     screen: {
         flex: 1
     },
-    item: {
-        justifyContent: 'space-around',
+    tmpItem: {
+        marginTop: 30,
         width: '100%'
     }
 });

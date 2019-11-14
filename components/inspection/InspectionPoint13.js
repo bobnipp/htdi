@@ -11,6 +11,9 @@ const InspectionPoint13 = props => {
     const handleSwitch = (val) => {
         setInspectionResult(val);
         props.inspection.inspectionPoints[12] = val;
+        if (val) {
+            props.nextScreen();
+        }
     };
 
     return (

@@ -1,5 +1,5 @@
 import React, { useState} from 'react';
-import { StyleSheet, View, Button, Alert } from 'react-native';
+import { StyleSheet, View, Button, Text, Alert } from 'react-native';
 import { Icon } from 'react-native-elements'
 import COLORS from "../constants/colors";
 
@@ -10,13 +10,12 @@ const InspectionsListScreen = props => {
     // Add a temporary inspection
     const newInspection = () => {
         const d = new Date();
-        const dateStr = d.getMonth()+1 + '/' + d.getDate() + '/' + d.getFullYear();
+        const dateStr = d.getFullYear() + '-' + eval(d.getMonth()+1) + '-' + d.getDate();
         const id = uuidv4();
 
         let newInspection = {};
         newInspection.date = dateStr;
         newInspection.id = id;
-        newInspection.description = '';
         newInspection.archived = false;
         newInspection.state = 'incomplete'
         newInspection.inspectionPoints = [false,false,false,false,false,false,false,false,false,false,false,false,false];
@@ -57,15 +56,18 @@ const InspectionsListScreen = props => {
         props.setMode('EDIT');
     };
 
+    let content = <Text style={styles.emptyListText}>Press the 'Plus' button to add an inspection</Text>;
+    if (props.inspections.length > 0) {
+        content = <InspectionList
+            style={styles.inspectionList}
+            inspections={props.inspections}
+            filter={props.filter}
+            archiveInspection={handleArchiveInspection}
+            editInspection={handleEditInspection} />;
+    }
     return (
         <View style={styles.screen}>
-            <InspectionList
-                style={styles.inspectionList}
-                inspections={props.inspections}
-                filter={props.filter}
-                archiveInspection={handleArchiveInspection}
-                editInspection={handleEditInspection}
-            />
+            {content}
             <Icon name='add-circle' color={COLORS.primary} size={50} containerStyle={styles.icon} onPress={newInspection}/>
         </View>
     );
@@ -75,6 +77,14 @@ const styles = StyleSheet.create({
     screen: {
         flex: 1,
         height: '80%'
+    },
+    emptyListText: {
+        flex: 1,
+        fontSize: 16,
+        fontWeight: 'bold',
+        marginTop: 200,
+        alignSelf: 'center',
+        color: COLORS.primary,
     },
     inspectionList: {
         margin: 20,

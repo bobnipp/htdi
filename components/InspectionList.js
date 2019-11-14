@@ -5,13 +5,16 @@ import COLORS from "../constants/colors";
 const InspectionList = props => {
 
     const checkFilter = (insp, filter) => {
-        console.log('checking ' + insp.description + ' against ' + filter);
-        if (insp.state && insp.state.toUpperCase().includes(props.filter.toUpperCase())) return true;
-        if (insp.date && insp.date.toUpperCase().includes(props.filter.toUpperCase())) return true;
-        if (insp.project && insp.project.toUpperCase().includes(props.filter.toUpperCase())) return true;
-        if (insp.doorId && insp.doorId.toUpperCase().includes(props.filter.toUpperCase())) return true;
-        if (insp.doorAlternateId && insp.doorAlternateId.toUpperCase().includes(props.filter.toUpperCase())) return true;
-        if (insp.floor && insp.floor.toUpperCase().includes(props.filter.toUpperCase())) return true;
+        if (filter && filter.length > 0) {
+            if (insp.state && insp.state.toUpperCase().includes(props.filter.toUpperCase())) return true;
+            if (insp.date && insp.date.toUpperCase().includes(props.filter.toUpperCase())) return true;
+            if (insp.project && insp.project.toUpperCase().includes(props.filter.toUpperCase())) return true;
+            if (insp.doorId && insp.doorId.toUpperCase().includes(props.filter.toUpperCase())) return true;
+            if (insp.doorAlternateId && insp.doorAlternateId.toUpperCase().includes(props.filter.toUpperCase())) return true;
+            if (insp.floor && insp.floor.toUpperCase().includes(props.filter.toUpperCase())) return true;
+        } else {
+            return true;
+        }
         return false;
     };
 

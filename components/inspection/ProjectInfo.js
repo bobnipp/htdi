@@ -4,6 +4,7 @@ import RNPickerSelect from 'react-native-picker-select';
 import DatePicker from 'react-native-datepicker';
 import EditInspectionPage from "./EditInspectionPage";
 import PROJECTS from '../../assets/Projects';
+import CustomInput from "../CustomInput";
 
 const ProjectInfo = props => {
     [dateContainer, setDate] = useState(props.inspection.date);
@@ -54,6 +55,7 @@ const ProjectInfo = props => {
                    onDateChange={(date) => {dateHandler({dateContainer: date})}}
                />
            </View>
+
 
        </EditInspectionPage>
     );

@@ -30,35 +30,13 @@ const EditInspectionsScreen = props => {
     const [inspectionsPageIndex, setInspectionsPageIndex] = useState(0);
     const [localInspection, setLocalInspection] = useState(props.inspection);
 
-    const inspectionScreens = [
-        <ProjectInfo inspection={localInspection} />,
-        <DoorInfo inspection={localInspection} />,
-        <InspectionPoint1 switchStyle={styles.inspectionPointSwitch} textStyle={styles.inspectionPointText} inspection={localInspection} />,
-        <InspectionPoint2 switchStyle={styles.inspectionPointSwitch} textStyle={styles.inspectionPointText} inspection={localInspection} />,
-        <InspectionPoint3 switchStyle={styles.inspectionPointSwitch} textStyle={styles.inspectionPointText} inspection={localInspection} />,
-        <InspectionPoint4 switchStyle={styles.inspectionPointSwitch} textStyle={styles.inspectionPointText} inspection={localInspection} />,
-        <InspectionPoint5 switchStyle={styles.inspectionPointSwitch} textStyle={styles.inspectionPointText} inspection={localInspection} />,
-        <InspectionPoint6 switchStyle={styles.inspectionPointSwitch} textStyle={styles.inspectionPointText} inspection={localInspection} />,
-        <InspectionPoint7 switchStyle={styles.inspectionPointSwitch} textStyle={styles.inspectionPointText} inspection={localInspection} />,
-        <InspectionPoint8 switchStyle={styles.inspectionPointSwitch} textStyle={styles.inspectionPointText} inspection={localInspection} />,
-        <InspectionPoint9 switchStyle={styles.inspectionPointSwitch} textStyle={styles.inspectionPointText} inspection={localInspection} />,
-        <InspectionPoint10 switchStyle={styles.inspectionPointSwitch} textStyle={styles.inspectionPointText} inspection={localInspection} />,
-        <InspectionPoint11 switchStyle={styles.inspectionPointSwitch} textStyle={styles.inspectionPointText} inspection={localInspection} />,
-        <InspectionPoint12 switchStyle={styles.inspectionPointSwitch} textStyle={styles.inspectionPointText} inspection={localInspection} />,
-        <InspectionPoint13 switchStyle={styles.inspectionPointSwitch} textStyle={styles.inspectionPointText} inspection={localInspection} />,
-        <AdditionalInfo inspection={localInspection} />
-    ];
-
-    const inspectionScreen = inspectionScreens[inspectionsPageIndex];
-    // const inspectionScreen = <View><Text>XXXX</Text></View>
-
-    const nextScreen = (gestureState) => {
+    const nextScreen = () => {
         if (inspectionsPageIndex < inspectionScreens.length - 1 ) {
             setInspectionsPageIndex(inspectionsPageIndex + 1);
         }
     };
 
-    const prevScreen = (gestureState) => {
+    const prevScreen = () => {
         if (inspectionsPageIndex > 0) {
             setInspectionsPageIndex(inspectionsPageIndex - 1);
         }
@@ -72,6 +50,26 @@ const EditInspectionsScreen = props => {
         }
         props.setMode('LIST');
     };
+
+    const inspectionScreens = [
+        <ProjectInfo inspection={localInspection} />,
+        <DoorInfo inspection={localInspection} />,
+        <InspectionPoint1 switchStyle={styles.inspectionPointSwitch} textStyle={styles.inspectionPointText} inspection={localInspection} nextScreen={nextScreen} />,
+        <InspectionPoint2 switchStyle={styles.inspectionPointSwitch} textStyle={styles.inspectionPointText} inspection={localInspection} nextScreen={nextScreen} />,
+        <InspectionPoint3 switchStyle={styles.inspectionPointSwitch} textStyle={styles.inspectionPointText} inspection={localInspection} nextScreen={nextScreen} />,
+        <InspectionPoint4 switchStyle={styles.inspectionPointSwitch} textStyle={styles.inspectionPointText} inspection={localInspection} nextScreen={nextScreen} />,
+        <InspectionPoint5 switchStyle={styles.inspectionPointSwitch} textStyle={styles.inspectionPointText} inspection={localInspection} nextScreen={nextScreen} />,
+        <InspectionPoint6 switchStyle={styles.inspectionPointSwitch} textStyle={styles.inspectionPointText} inspection={localInspection} nextScreen={nextScreen} />,
+        <InspectionPoint7 switchStyle={styles.inspectionPointSwitch} textStyle={styles.inspectionPointText} inspection={localInspection} nextScreen={nextScreen} />,
+        <InspectionPoint8 switchStyle={styles.inspectionPointSwitch} textStyle={styles.inspectionPointText} inspection={localInspection} nextScreen={nextScreen} />,
+        <InspectionPoint9 switchStyle={styles.inspectionPointSwitch} textStyle={styles.inspectionPointText} inspection={localInspection} nextScreen={nextScreen} />,
+        <InspectionPoint10 switchStyle={styles.inspectionPointSwitch} textStyle={styles.inspectionPointText} inspection={localInspection} nextScreen={nextScreen} />,
+        <InspectionPoint11 switchStyle={styles.inspectionPointSwitch} textStyle={styles.inspectionPointText} inspection={localInspection} nextScreen={nextScreen} />,
+        <InspectionPoint12 switchStyle={styles.inspectionPointSwitch} textStyle={styles.inspectionPointText} inspection={localInspection} nextScreen={nextScreen} />,
+        <InspectionPoint13 switchStyle={styles.inspectionPointSwitch} textStyle={styles.inspectionPointText} inspection={localInspection} nextScreen={nextScreen} />,
+        <AdditionalInfo inspection={localInspection} />
+    ];
+    const inspectionScreen = inspectionScreens[inspectionsPageIndex];
 
     let leftButton, rightButton;
     if (inspectionsPageIndex > 0) {

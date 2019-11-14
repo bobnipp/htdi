@@ -36,21 +36,21 @@ const AdditionalInfo = props => {
                 onChangeText = {commentHandler}
                 value = {comments}
                 placeholder="Comments..."
-                placeholderTextColor='#FFF'/>
+                />
             <CustomInput
                 label = "Inspected By"
                 style={styles.item}
                 onChangeText = {inspectedByHandler}
                 value = {inspectedBy}
                 placeholder="Inspected By..."
-                placeholderTextColor='#FFF'/>
+                />
             <CustomInput
                 label = "Inspector Signature"
                 style={styles.item}
                 onChangeText = {inspectorSignatureHandler}
                 value = {inspectorSignature}
                 placeholder="Inspector Signature..."
-                placeholderTextColor='#FFF'/>
+                />
         </EditInspectionPage>
     );
 };
@@ -58,7 +58,7 @@ const AdditionalInfo = props => {
 const styles = StyleSheet.create({
     screen: {
     },
-    item: {
+    tmpItem: {
         justifyContent: 'space-around',
         paddingLeft: 10,
         paddingRight: 10,

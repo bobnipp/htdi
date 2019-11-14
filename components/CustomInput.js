@@ -7,13 +7,14 @@ const CustomInput = props => {
     if (props.label) {
         label = <Text style={styles.label}>{props.label}</Text>
     }
+
     return (
         <View style={{...styles.screen, ...props.style}}>
             {label}
             <TextInput
                 {...props}
                 style={{...styles.input, ...props.textInputStyle}}
-                placeholderTextColor = {(props.placeholderTextColor ? props.placeholderTextColor : '#000')}
+                placeholderTextColor = {(props.placeholderTextColor ? props.placeholderTextColor : 'gray')}
                 autoCorrect={false}
             />
         </View>
